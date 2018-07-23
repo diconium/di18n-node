@@ -140,7 +140,7 @@ i18n.registerMethods = function (helpers, req) {
 	return helpers;
 };
 
-di18nAPI.prototype = {
+i18n.prototype = {
 	defaultLocale: "en",
 	extension: ".js",
 	directory: "./locales",
@@ -210,7 +210,7 @@ di18nAPI.prototype = {
 	},
 
 	getLocales: function () {
-		return this.locale + Object.keys(this.fallbacks);
+		return Object.keys(this.locales).concat(Object.keys(this.fallbacks));
 	},
 
 	isPreferredLocale: function () {
