@@ -1,17 +1,17 @@
 {
-  "name": "i18n-2",
+  "name": "di18n",
   "description": "lightweight simple translation module with dynamic json storage",
-  "version": "0.7.2",
-  "homepage": "http://github.com/jeresig/i18n-node-2",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "http://github.com/jeresig/i18n-node-2.git"
+    "url": "https://github.com/diconium/i18n-node-2"
   },
-  "author": "John Resig <jeresig@gmail.com>",
+  "author": "Francisco Madeira <francisco.madeira@diconium.com>",
   "main": "./index",
   "directories": {
     "lib": "."
   },
+  "types": "./lib/index.d.ts",
   "dependencies": {
     "debug": "^3.1.0",
     "sprintf": "^0.1.5"

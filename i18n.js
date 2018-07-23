@@ -54,6 +54,8 @@ var i18n = module.exports = function (opt) {
 		});
 	}
 
+	this.fallbacks = (typeof opt.fallbacks === 'object') ? opt.fallbacks : {};
+
 	// implicitly read all locales
 	// if it's an array of locale names, read in the data
 	if (opt.locales && opt.locales.forEach) {
@@ -190,12 +192,14 @@ i18n.prototype = {
 
 		if (!locale) return;
 
-		if (!this.locales[locale]) {
+		if (!this.locales[locale] && !this.fallbacks[locale]) {
 			if (this.devMode) {
 				debugWarn("Locale (" + locale + ") not found.");
 			}
 
 			locale = this.defaultLocale;
+		} else if (this.fallbacks[locale]) {
+			locale = this.fallbacks[locale];
 		}
 
 		return (this.locale = locale);
@@ -203,6 +207,10 @@ i18n.prototype = {
 
 	getLocale: function () {
 		return this.locale;
+	},
+
+	getLocales: function () {
+		return this.locale + Object.keys(this.fallbacks);
 	},
 
 	isPreferredLocale: function () {
