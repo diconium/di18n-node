@@ -312,6 +312,7 @@ declare namespace di18n {
 }
 
 interface di18nAPI {
+    new (options: ConfigurationOptions): di18nAPI;
     locale: string;
 
     //#region __()
