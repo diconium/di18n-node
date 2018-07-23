@@ -4,14 +4,13 @@
   "version": "0.2.8",
   "repository": {
     "type": "git",
-    "url": "https://github.com/diconium/i18n-node-2"
+    "url": "https://github.com/diconium/di18n-node"
   },
   "author": "Francisco Madeira <francisco.madeira@diconium.com>",
   "main": "./index",
   "directories": {
     "lib": "."
   },
-  "types": "./index.d.ts",
   "dependencies": {
     "debug": "^3.1.0",
     "sprintf": "^0.1.5"
