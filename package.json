@@ -1,7 +1,7 @@
 {
   "name": "di18n",
   "description": "lightweight simple translation module with dynamic json storage",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/diconium/i18n-node-2"
