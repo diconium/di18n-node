@@ -312,7 +312,7 @@ declare namespace di18n {
 }
 
 interface di18nAPI {
-    new (options: ConfigurationOptions): di18nAPI;
+    new (options: di18n.ConfigurationOptions): di18nAPI;
     locale: string;
 
     //#region __()
@@ -424,5 +424,5 @@ interface di18nAPI {
 }
 
 declare module "di18n" {
-    export = di18n;
+    export = di18nAPI;
 }
