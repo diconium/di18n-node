@@ -1,11 +1,4 @@
-// Type definitions for i18n-node 0.8
-// Project: https://github.com/mashpie/i18n-node
-// Definitions by: Maxime LUCE <https://github.com/SomaticIT>
-//                 FindQ <https://github.com/FindQ>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 2.2
-
-declare namespace i18n {
+declare namespace di18n {
     interface ConfigurationOptions {
         /**
          * Setup some locales - other locales default to en silently
@@ -318,7 +311,7 @@ declare namespace i18n {
     const version: string;
 }
 
-interface i18nAPI {
+interface di18nAPI {
     locale: string;
 
     //#region __()
@@ -328,14 +321,14 @@ interface i18nAPI {
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @returns The translated phrase
      */
-    __(phraseOrOptions: string | i18n.TranslateOptions, ...replace: string[]): string;
+    __(phraseOrOptions: string | di18n.TranslateOptions, ...replace: string[]): string;
     /**
      * Translate the given phrase using locale configuration
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @param replacements - An object containing replacements
      * @returns The translated phrase
      */
-    __(phraseOrOptions: string | i18n.TranslateOptions, replacements: i18n.Replacements): string;
+    __(phraseOrOptions: string | di18n.TranslateOptions, replacements: di18n.Replacements): string;
 
     //#endregion
 
@@ -347,7 +340,7 @@ interface i18nAPI {
      * @param [count] - The number which allow to select from plural to singular
      * @returns The translated phrase
      */
-    __n(options: i18n.PluralOptions, count?: number): string;
+    __n(options: di18n.PluralOptions, count?: number): string;
     /**
      * Translate with plural condition the given phrase and count using locale configuration
      * @param singular - The singular phrase to translate if count is <= 1
@@ -366,14 +359,14 @@ interface i18nAPI {
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @returns The translated phrase
      */
-    __mf(phraseOrOptions: string | i18n.TranslateOptions, ...replace: any[]): string;
+    __mf(phraseOrOptions: string | di18n.TranslateOptions, ...replace: any[]): string;
     /**
      * Translate the given phrase using locale configuration and MessageFormat
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @param replacements - An object containing replacements
      * @returns The translated phrase
      */
-    __mf(phraseOrOptions: string | i18n.TranslateOptions, replacements: i18n.Replacements): string;
+    __mf(phraseOrOptions: string | di18n.TranslateOptions, replacements: di18n.Replacements): string;
 
     //#endregion
 
@@ -395,7 +388,7 @@ interface i18nAPI {
      * @param phrase - The phrase to get translations in each language
      * @returns The phrase in each language
      */
-    __h(phrase: string): i18n.HashedList[];
+    __h(phrase: string): di18n.HashedList[];
 
     //#endregion
 
@@ -420,28 +413,15 @@ interface i18nAPI {
      * Get the current global catalog
      * @returns The current global catalog
      */
-    getCatalog(): i18n.GlobalCatalog;
+    getCatalog(): di18n.GlobalCatalog;
     /**
      * Get the catalog for the given locale
      * @param locale - The locale to get catalog for
      * @returns The specified locale catalog
      */
-    getCatalog(locale?: string): i18n.LocaleCatalog;
+    getCatalog(locale?: string): di18n.LocaleCatalog;
 }
 
-declare module "i18n" {
-    export = i18n;
-}
-
-declare namespace Express {
-    interface Request extends i18nAPI {
-        languages: string[];
-        regions: string[];
-        language: string;
-        region: string;
-    }
-
-    interface Response extends i18nAPI {
-        locals: i18nAPI;
-    }
+declare module "di18n" {
+    export = di18n;
 }
