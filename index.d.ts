@@ -155,120 +155,121 @@ declare namespace di18n {
      * Get current i18n-node version
      */
     const version: string;
-}
-
-interface di18nAPI {
-    new (options: ConfigurationOptions): di18nAPI;
-    locale: string;
-
-    //#region __()
-
-    /**
-     * Translate the given phrase using locale configuration
-     * @param phraseOrOptions - The phrase to translate or options for translation
-     * @returns The translated phrase
-     */
-    __(phraseOrOptions: string | di18n.TranslateOptions, ...replace: string[]): string;
-    /**
-     * Translate the given phrase using locale configuration
-     * @param phraseOrOptions - The phrase to translate or options for translation
-     * @param replacements - An object containing replacements
-     * @returns The translated phrase
-     */
-    __(phraseOrOptions: string | di18n.TranslateOptions, replacements: di18n.Replacements): string;
-
-    //#endregion
-
-    //#region __n()
-
-    /**
-     * Translate with plural condition the given phrase and count using locale configuration
-     * @param options - Options for plural translate
-     * @param [count] - The number which allow to select from plural to singular
-     * @returns The translated phrase
-     */
-    __n(options: di18n.PluralOptions, count?: number): string;
-    /**
-     * Translate with plural condition the given phrase and count using locale configuration
-     * @param singular - The singular phrase to translate if count is <= 1
-     * @param plural - The plural phrase to translate if count is > 1
-     * @param count - The number which allow to select from plural to singular
-     * @returns The translated phrase
-     */
-    __n(singular: string, plural: string, count: number | string): string;
-
-    //#endregion
-
-    //#region __mf()
-
-    /**
-     * Translate the given phrase using locale configuration and MessageFormat
-     * @param phraseOrOptions - The phrase to translate or options for translation
-     * @returns The translated phrase
-     */
-    __mf(phraseOrOptions: string | di18n.TranslateOptions, ...replace: any[]): string;
-    /**
-     * Translate the given phrase using locale configuration and MessageFormat
-     * @param phraseOrOptions - The phrase to translate or options for translation
-     * @param replacements - An object containing replacements
-     * @returns The translated phrase
-     */
-    __mf(phraseOrOptions: string | di18n.TranslateOptions, replacements: di18n.Replacements): string;
-
-    //#endregion
-
-    //#region __l()
-
-    /**
-     * Returns a list of translations for a given phrase in each language.
-     * @param phrase - The phrase to get translations in each language
-     * @returns The phrase in each language
-     */
-    __l(phrase: string): string[];
-
-    //#endregion
-
-    //#region __h()
-
-    /**
-     * Returns a hashed list of translations for a given phrase in each language.
-     * @param phrase - The phrase to get translations in each language
-     * @returns The phrase in each language
-     */
-    __h(phrase: string): di18n.HashedList[];
-
-    //#endregion
-
-    /**
-     * Get the current active locale
-     * @returns The current locale in request
-     */
-    getLocale(): string;
-
-    /**
-     * Get a list with all configured locales
-     */
-    getLocales(): string[];
-
-    /**
-     * Change the current active locale
-     * @param locale - The locale to set as default
-     */
-    setLocale(locale: string): void;
-
-    /**
-     * Get the current global catalog
-     * @returns The current global catalog
-     */
-    getCatalog(): di18n.GlobalCatalog;
-    /**
-     * Get the catalog for the given locale
-     * @param locale - The locale to get catalog for
-     * @returns The specified locale catalog
-     */
-    getCatalog(locale?: string): di18n.LocaleCatalog;
+    
+    interface di18nAPI {
+        new (options: ConfigurationOptions): di18nAPI;
+        locale: string;
+    
+        //#region __()
+    
+        /**
+         * Translate the given phrase using locale configuration
+         * @param phraseOrOptions - The phrase to translate or options for translation
+         * @returns The translated phrase
+         */
+        __(phraseOrOptions: string | di18n.TranslateOptions, ...replace: string[]): string;
+        /**
+         * Translate the given phrase using locale configuration
+         * @param phraseOrOptions - The phrase to translate or options for translation
+         * @param replacements - An object containing replacements
+         * @returns The translated phrase
+         */
+        __(phraseOrOptions: string | di18n.TranslateOptions, replacements: di18n.Replacements): string;
+    
+        //#endregion
+    
+        //#region __n()
+    
+        /**
+         * Translate with plural condition the given phrase and count using locale configuration
+         * @param options - Options for plural translate
+         * @param [count] - The number which allow to select from plural to singular
+         * @returns The translated phrase
+         */
+        __n(options: di18n.PluralOptions, count?: number): string;
+        /**
+         * Translate with plural condition the given phrase and count using locale configuration
+         * @param singular - The singular phrase to translate if count is <= 1
+         * @param plural - The plural phrase to translate if count is > 1
+         * @param count - The number which allow to select from plural to singular
+         * @returns The translated phrase
+         */
+        __n(singular: string, plural: string, count: number | string): string;
+    
+        //#endregion
+    
+        //#region __mf()
+    
+        /**
+         * Translate the given phrase using locale configuration and MessageFormat
+         * @param phraseOrOptions - The phrase to translate or options for translation
+         * @returns The translated phrase
+         */
+        __mf(phraseOrOptions: string | di18n.TranslateOptions, ...replace: any[]): string;
+        /**
+         * Translate the given phrase using locale configuration and MessageFormat
+         * @param phraseOrOptions - The phrase to translate or options for translation
+         * @param replacements - An object containing replacements
+         * @returns The translated phrase
+         */
+        __mf(phraseOrOptions: string | di18n.TranslateOptions, replacements: di18n.Replacements): string;
+    
+        //#endregion
+    
+        //#region __l()
+    
+        /**
+         * Returns a list of translations for a given phrase in each language.
+         * @param phrase - The phrase to get translations in each language
+         * @returns The phrase in each language
+         */
+        __l(phrase: string): string[];
+    
+        //#endregion
+    
+        //#region __h()
+    
+        /**
+         * Returns a hashed list of translations for a given phrase in each language.
+         * @param phrase - The phrase to get translations in each language
+         * @returns The phrase in each language
+         */
+        __h(phrase: string): di18n.HashedList[];
+    
+        //#endregion
+    
+        /**
+         * Get the current active locale
+         * @returns The current locale in request
+         */
+        getLocale(): string;
+    
+        /**
+         * Get a list with all configured locales
+         */
+        getLocales(): string[];
+    
+        /**
+         * Change the current active locale
+         * @param locale - The locale to set as default
+         */
+        setLocale(locale: string): void;
+    
+        /**
+         * Get the current global catalog
+         * @returns The current global catalog
+         */
+        getCatalog(): di18n.GlobalCatalog;
+        /**
+         * Get the catalog for the given locale
+         * @param locale - The locale to get catalog for
+         * @returns The specified locale catalog
+         */
+        getCatalog(locale?: string): di18n.LocaleCatalog;
+    }
+    
 }
 
 declare module "di18n" {
-    export = di18nAPI;
+    export = di18n;
 }
